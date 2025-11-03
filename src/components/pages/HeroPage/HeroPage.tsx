@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 const HeroPage = () => {
   return (
     <WaveBackground>
-      <div className="p-4  text-black pt-[180px] md:pt-[250px] h-full flex flex-col items-center text-center relative">
+      <div className="p-4  text-black  h-full flex flex-col items-center justify-center text-center relative">
         <div>
           <h1 className="md:text-8xl text-5xl font-semibold md:font-normal">
             <span className="bg-linear-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-transparent">
