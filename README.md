@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+🧭 CoEdify — AI-Powered Talent & Automation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CoEdify is the parent platform behind Devsko, built to power the future of work through AI-driven hiring, assessments, and automation.
+This landing page represents CoEdify’s vision — connecting businesses, teams, and professionals through intelligent technology.
 
-Currently, two official plugins are available:
+🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CoEdify is designed to serve two core audiences:
 
-## React Compiler
+For Talent: Get hired through AI-powered assessments that showcase real skills.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+For Teams: Hire smarter and faster using intelligent automation and skill analytics.
 
-## Expanding the ESLint configuration
+This website combines clean UI, micro-interactions, and data-driven content to present CoEdify’s full suite of AI services and ecosystem products.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🧩 Key Sections
+1. Hero Section
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Get Hired. Hire Smarter. Grow with AI.
+AI-driven platform empowering professionals and teams to achieve more — together.
+Includes CTA buttons: “Get Hired” and “Start Hiring”.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. Core Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Showcases six defining features of CoEdify:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+AI-Powered Assessments – Unbiased, skill-based evaluations.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Smart Hiring Automation – Intelligent candidate screening and matching.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Talent Intelligence Engine – Analytics-driven talent insights.
+
+Seamless Skill Matching – AI-aligned opportunity connections.
+
+Real-Time Insights & Analytics – Data visualizations for decision-making.
+
+Connected Ecosystem – Integrated with Devsko and enterprise tools.
+
+3. Service Offerings
+
+AI-Powered Skill Assessment
+
+End-to-End Talent Intelligence
+
+Custom AI Development
+
+Automation & Process Optimization
+
+Data-Driven Insights & Analytics
+
+4. Brand Positioning
+
+“From Services to Smart Products — Redefining How the World Hires.”
+CoEdify blends AI innovation with human potential — enabling smarter assessments, fairer hiring, and seamless business automation.
+
+🎨 Design & Theme
+
+Theme Colors: Light Blue, Light Gray, White, and Black
+
+Typography: Modern Sans-Serif (Readable and Minimal)
+
+Style: Clean, gradient-based, with micro animations and soft transitions
+
+UI Frameworks: React + Tailwind CSS (or your chosen stack)
+
+Design Goal: Maintain brand continuity with Devsko while presenting CoEdify as the AI backbone powering it.
+
+🏗️ Tech Stack (Recommended)
+
+Frontend: React 19
+
+Styling: Tailwind CSS + Framer Motion (for micro-interactions)
+
+UI Library: shadcn/ui (for cards, modals, and sections)
+
+Icons: Lucide React
+
+Hosting: Vercel / Netlify
+
+📦 Folder Structure (Atomic structure)
+/components
+  /atom
+  /components
+  /organisms
+  /pages
+/utils
+  constants.ts
+
+🌐 Deployment
+
+You can deploy this landing page using:
+
+npm run build
+npm run start
+
+
+or instantly on Vercel by connecting your GitHub repository.
+
+🤝 Contributing
+
+We welcome improvements, design enhancements, or performance optimizations.
+Please open a pull request or create an issue with detailed context.
+
+🧠 About CoEdify
+
+CoEdify is redefining how teams hire, assess, and automate using AI.
+It powers intelligent platforms like Devsko, bringing fairness, accuracy, and innovation to the future of work.
+
+“AI that understands skills — not just scores.”
