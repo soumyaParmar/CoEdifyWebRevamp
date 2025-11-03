@@ -2,7 +2,6 @@ import Button from "@/components/atom/Button/Button";
 import CardLayout from "@/components/atom/Card/CardLayout";
 import GradientH1 from "@/components/atom/TextWithStyles/GradientH1";
 import { ArrowRight, Calendar, Rocket } from "lucide-react";
-import React from "react";
 
 const CTASection = () => {
   return (
