@@ -36,13 +36,8 @@ const NavMenu = () => {
           <div className="flex justify-between items-center h-16 md:h-16">
             {/* Logo */}
             <div className="shrink-0 z-50">
-              <a href="/" className="group flex items-center space-x-3">
-                <div className="w-10 h-10 bg-linear-to-br from-gray-900 to-gray-700 rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-md">
-                  <span className="text-white font-bold text-lg">C</span>
-                </div>
-                <span className="text-2xl font-bold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  CoEdify
-                </span>
+              <a href="/" className="group flex items-center">
+                <img src='/logo.png' alt='coedify' height={150} width={170}/>
               </a>
             </div>
 

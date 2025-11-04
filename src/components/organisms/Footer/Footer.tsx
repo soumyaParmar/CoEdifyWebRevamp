@@ -53,13 +53,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand Section */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 bg-linear-to-br from-gray-800 to-gray-600 rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <h2 className="text-2xl font-bold bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                CoEdify
-              </h2>
+            <div className="shrink-0 z-50">
+              <a href="/" className="group flex items-center -ml-2">
+                <img src='/logo.png' alt='coedify' height={150} width={170}/>
+              </a>
             </div>
             <p className="text-gray-600 leading-relaxed text-sm">
               At CoEdify, we take immense pride in being your trusted partner in
