@@ -16,8 +16,8 @@ const WaveBackground = ({ children }: { children: ReactNode }) => {
           e.currentTarget.playbackRate = 0.9;
         }}
       ></video>
-      <div className="absolute inset-0 bg-white/80 z-10"></div>
-      <div className="relative z-20 h-full bg-linear-to-b from-white/5 to-white">
+      <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 z-10 transition-colors duration-500"></div>
+      <div className="relative z-20 h-full bg-linear-to-b from-white/5 to-white dark:from-slate-950/20 dark:to-slate-950 transition-colors duration-500">
         {children}
       </div>
     </div>

@@ -17,9 +17,9 @@ const Heading: React.FC<HeadingProps> = ({
   const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
 
   const variants = {
-    default: "text-gray-900",
+    default: "text-gray-900 dark:text-white",
     gradient:
-      "bg-linear-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-transparent",
+      "bg-linear-to-r from-gray-500 via-black to-gray-500 dark:from-gray-400 dark:via-white dark:to-gray-400 bg-clip-text text-transparent",
     "blue-gradient":
       "bg-linear-to-r from-blue-400 via-blue-500 to-blue-400 bg-clip-text text-transparent",
   };

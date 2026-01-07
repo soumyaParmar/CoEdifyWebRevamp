@@ -27,11 +27,11 @@ const HeroSection = () => {
       <Container className="h-full flex flex-col items-center justify-center text-center relative py-20 ">
         <div className=" space-y-8">
           <Heading level={1}>
-            <span className="bg-linear-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-gray-500 via-black to-gray-500 dark:from-gray-400 dark:via-white dark:to-gray-400 bg-clip-text text-transparent transition-all duration-500">
               Powering Intelligent Workflows
             </span>
             <br />
-            <span className="bg-linear-to-r from-blue-400 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-blue-500 to-blue-400 bg-clip-text text-transparent transition-all duration-500">
               With AI Agents
             </span>
           </Heading>

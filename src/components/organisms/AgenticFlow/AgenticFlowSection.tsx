@@ -29,7 +29,7 @@ const steps = [
 
 const AgenticFlowSection = () => {
   return (
-    <section className="py-24 bg-gray-50/50" id="process">
+    <section className="py-24 bg-gray-50/50 dark:bg-slate-950/20" id="process">
       <Container>
         <SectionHeader
           title="From Manual Processes to Autonomous AI Workflows"
@@ -39,15 +39,15 @@ const AgenticFlowSection = () => {
 
         <div className="relative">
           {/* Connection line for desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-blue-200 to-transparent -translate-y-1/2 z-0"></div>
+          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-blue-200 dark:via-blue-900/50 to-transparent -translate-y-1/2 z-0"></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
             {steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center space-y-6">
-                <div className="w-20 h-20 bg-white rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center text-blue-500 relative group transition-transform duration-300 hover:scale-110">
+                <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-blue-900/20 border border-gray-100 dark:border-white/5 flex items-center justify-center text-blue-500 dark:text-blue-400 relative group transition-transform duration-300 hover:scale-110">
                   <step.icon size={36} />
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 items-center justify-center text-blue-200">
+                    <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 items-center justify-center text-blue-200 dark:text-blue-900/50">
                       <ArrowRight size={24} />
                     </div>
                   )}
@@ -67,21 +67,30 @@ const AgenticFlowSection = () => {
         </div>
 
         <div className="mt-20 flex flex-wrap justify-center gap-8">
-          <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100">
+          <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
             <CheckCircle className="text-green-500" size={20} />
-            <Text variant="small" className="font-bold text-gray-700">
+            <Text
+              variant="small"
+              className="font-bold text-gray-700 dark:text-gray-300"
+            >
               Faster Execution
             </Text>
           </div>
-          <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100">
+          <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
             <CheckCircle className="text-green-500" size={20} />
-            <Text variant="small" className="font-bold text-gray-700">
+            <Text
+              variant="small"
+              className="font-bold text-gray-700 dark:text-gray-300"
+            >
               Lower Error Rates
             </Text>
           </div>
-          <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100">
+          <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5">
             <CheckCircle className="text-green-500" size={20} />
-            <Text variant="small" className="font-bold text-gray-700">
+            <Text
+              variant="small"
+              className="font-bold text-gray-700 dark:text-gray-300"
+            >
               Explainable Decisions
             </Text>
           </div>

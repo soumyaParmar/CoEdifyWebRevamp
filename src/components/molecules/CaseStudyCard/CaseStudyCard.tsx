@@ -20,7 +20,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy }) => {
             {caseStudy.tags?.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] rounded-full uppercase tracking-wider font-bold"
+                className="px-3 py-1 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400 text-[10px] rounded-full uppercase tracking-wider font-bold border border-gray-200 dark:border-white/5"
               >
                 {tag}
               </span>
@@ -41,11 +41,11 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy }) => {
             </span>
             <Text className="mt-1 font-medium">{caseStudy.solution}</Text>
           </div>
-          <div className="pt-2 border-t border-gray-50">
+          <div className="pt-2 border-t border-gray-100 dark:border-white/5">
             <span className="text-green-500 font-bold text-xs uppercase">
               Outcome
             </span>
-            <Text className="mt-1 font-semibold text-gray-900">
+            <Text className="mt-1 font-semibold text-gray-900 dark:text-white">
               {caseStudy.outcome}
             </Text>
           </div>

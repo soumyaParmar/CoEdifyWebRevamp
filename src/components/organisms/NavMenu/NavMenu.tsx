@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/atom/ThemeToggle";
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ const NavMenu = () => {
           className={cn(
             "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 mt-2",
             scrolled
-              ? "bg-white/80 backdrop-blur-xl shadow-lg rounded-full"
+              ? "bg-white/80 backdrop-blur-xl shadow-lg rounded-full dark:bg-slate-900/80 dark:border dark:border-white/5"
               : "bg-transparent backdrop-blur-none"
           )}
         >
@@ -46,7 +47,13 @@ const NavMenu = () => {
             {/* Logo */}
             <div className="shrink-0 z-50">
               <a href="/" className="group flex items-center">
-                <img src="/logo.png" alt="coedify" height={150} width={170} />
+                <img
+                  src="/logo.png"
+                  alt="coedify"
+                  height={150}
+                  width={170}
+                  className="dark:invert dark:brightness-200 transition-all duration-300"
+                />
               </a>
             </div>
 
@@ -59,13 +66,13 @@ const NavMenu = () => {
                   onClick={() => setActiveSection(link.href)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
                     activeSection === link.href
-                      ? "text-gray-900"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "text-gray-900 dark:text-white"
+                      : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   {link.name}
                   <span
-                    className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 transition-all duration-300 group-hover:w-3/4 ${
+                    className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-3/4 ${
                       activeSection === link.href ? "w-3/4" : ""
                     }`}
                   ></span>
@@ -73,13 +80,14 @@ const NavMenu = () => {
               ))}
             </div>
 
-            {/* Desktop CTA Button */}
-            <div className="hidden md:block">
+            {/* Desktop CTA Button & Theme Toggle */}
+            <div className="hidden md:flex items-center space-x-4">
+              <ThemeToggle />
               <a
                 href="https://calendar.app.google/PDsuNkzSCVGXvhio8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-6 py-2.5 bg-blue-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 overflow-hidden inline-flex items-center space-x-2"
+                className="group relative px-6 py-2.5 bg-blue-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 overflow-hidden inline-flex items-center space-x-2 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
                 <span className="relative z-10 flex items-center space-x-2">
                   <Calendar size={18} />
@@ -89,19 +97,22 @@ const NavMenu = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden relative z-50 p-2 rounded-lg text-gray-900 hover:bg-gray-100 transition-colors duration-300"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="md:hidden flex items-center space-x-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative z-50 p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-xl transition-all duration-300 ${
+          className={`md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transition-all duration-300 ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -121,14 +132,14 @@ const NavMenu = () => {
                 <span
                   className={`transition-colors duration-300 ${
                     activeSection === link.href
-                      ? "text-gray-900"
-                      : "text-gray-600 group-hover:text-gray-900"
+                      ? "text-gray-900 dark:text-white"
+                      : "text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   }`}
                 >
                   {link.name}
                 </span>
                 <span
-                  className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 transition-all duration-300 group-hover:w-full ${
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-full ${
                     activeSection === link.href ? "w-full" : ""
                   }`}
                 ></span>
@@ -151,8 +162,8 @@ const NavMenu = () => {
             </a>
 
             {/* Decorative Elements */}
-            <div className="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-gray-200 to-gray-100 rounded-full filter blur-3xl opacity-50"></div>
-            <div className="absolute bottom-20 left-10 w-40 h-40 bg-linear-to-br from-gray-300 to-gray-200 rounded-full filter blur-3xl opacity-50"></div>
+            <div className="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-gray-200 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-full filter blur-3xl opacity-50"></div>
+            <div className="absolute bottom-20 left-10 w-40 h-40 bg-linear-to-br from-gray-300 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full filter blur-3xl opacity-50"></div>
           </div>
         </div>
       </nav>

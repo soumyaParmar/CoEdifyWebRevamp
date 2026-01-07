@@ -8,16 +8,25 @@ export const metadata: Metadata = {
     "AI-driven platform empowering professionals and teams to achieve more — together.",
 };
 
+import { ThemeProvider } from "@/components/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <NavMenu />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavMenu />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

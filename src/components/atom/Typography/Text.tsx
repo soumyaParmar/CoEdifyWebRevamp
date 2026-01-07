@@ -13,9 +13,9 @@ const Text: React.FC<TextProps> = ({
   variant = "default",
 }) => {
   const variants = {
-    default: "text-gray-700",
-    muted: "text-gray-400 font-medium",
-    small: "text-sm text-gray-500",
+    default: "text-gray-700 dark:text-gray-300",
+    muted: "text-gray-400 font-medium dark:text-gray-400",
+    small: "text-sm text-gray-500 dark:text-gray-500",
   };
 
   return (

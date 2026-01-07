@@ -45,7 +45,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 {product.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                    <Text variant="small" className="text-gray-600">
+                    <Text
+                      variant="small"
+                      className="text-gray-600 dark:text-gray-400"
+                    >
                       {feature}
                     </Text>
                   </div>
@@ -66,7 +69,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <img
               src={product.imagePath}
               alt={product.name}
-              className="max-w-full h-auto rounded-xl shadow-lg border border-gray-100 object-cover"
+              className="max-w-full h-auto rounded-2xl shadow-xl border border-gray-100 dark:border-white/5 object-cover"
             />
           </div>
         )}

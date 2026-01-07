@@ -22,10 +22,10 @@ const FinalCTASection = () => {
   return (
     <section className="py-24">
       <Container>
-        <CardLayout className="py-20! px-8! relative overflow-hidden text-center bg-linear-to-br from-blue-50 to-white">
+        <CardLayout className="py-20! px-8! relative overflow-hidden text-center bg-linear-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-950 transition-colors duration-500">
           {/* Background decoration */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl z-0"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-100/50 rounded-full blur-3xl z-0"></div>
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl z-0"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl z-0"></div>
 
           <div className="relative z-10 space-y-8 max-w-3xl mx-auto">
             <Heading level={2} variant="gradient">

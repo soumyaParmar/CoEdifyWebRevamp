@@ -29,8 +29,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       )}
     >
       {badge && (
-        <div className="flex w-fit px-4 py-1 text-sm items-center gap-1 rounded-full bg-linear-to-br from-gray-50 via-gray-100 to-gray-50 shadow text-gray-700">
-          {badgeIcon}
+        <div className="flex w-fit px-4 py-1.5 text-sm font-medium items-center gap-2 rounded-full bg-linear-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 shadow-sm border border-gray-100 dark:border-white/5 text-gray-700 dark:text-gray-300 transition-all duration-500">
+          {badgeIcon && <span className="text-blue-500">{badgeIcon}</span>}
           <span>{badge}</span>
         </div>
       )}

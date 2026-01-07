@@ -26,7 +26,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="flex gap-4 flex-col justify-between h-full">
         <div className="flex justify-between items-center">
           {icon && (
-            <span className="p-2 border shadow rounded-xl text-blue-400">
+            <span className="p-3 border border-gray-100 dark:border-white/5 shadow-sm rounded-2xl text-blue-500 dark:text-blue-400 dark:bg-slate-800/50">
               {icon}
             </span>
           )}
