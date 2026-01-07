@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -23,7 +25,11 @@ const Button: React.FC<props> = ({
     : "border border-blue-500 text-blue-500";
   return (
     <button
-      className={cn("px-4 py-2 rounded-xl cursor-pointer", buttonStyle, className)}
+      className={cn(
+        "px-4 py-2 rounded-xl cursor-pointer",
+        buttonStyle,
+        className
+      )}
       onClick={onClick}
       disabled={disabled}
     >

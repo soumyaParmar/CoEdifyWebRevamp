@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import {
   Instagram,
@@ -14,10 +16,10 @@ export default function Footer() {
   const [hoveredSocial, setHoveredSocial] = useState<number | null>(null);
 
   const exploreLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How We Work", href: "#features" },
+    { name: "Capabilities", href: "#capabilities" },
+    { name: "Solutions", href: "#solutions" },
+    { name: "Products", href: "#products" },
+    { name: "Architecture", href: "#architecture" },
   ];
 
   const socialLinks = [
@@ -55,7 +57,7 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="shrink-0 z-50">
               <a href="/" className="group flex items-center -ml-2">
-                <img src='/logo.png' alt='coedify' height={150} width={170}/>
+                <img src="/logo.png" alt="coedify" height={150} width={170} />
               </a>
             </div>
             <p className="text-gray-600 leading-relaxed text-sm">

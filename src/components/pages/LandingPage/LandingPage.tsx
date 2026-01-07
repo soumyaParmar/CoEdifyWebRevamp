@@ -1,25 +1,30 @@
-import AboutUs from '@/components/organisms/AboutUs/AboutUs'
-import HeroPage from '../HeroPage/HeroPage'
-import Process from '@/components/organisms/Process/Process'
-import Services from '@/components/organisms/Services/Services'
-import Features from '@/components/organisms/Features/Features'
-import Benifits from '@/components/organisms/Benifits/Benifits'
-import Footer from '@/components/organisms/Footer/Footer'
-import CTASection from '@/components/organisms/CTAsection/CTASection'
+"use client";
+
+import HeroSection from "@/components/organisms/Hero/HeroSection";
+import CapabilitiesSection from "@/components/organisms/Capabilities/CapabilitiesSection";
+import AgenticFlowSection from "@/components/organisms/AgenticFlow/AgenticFlowSection";
+import SolutionsSection from "@/components/organisms/Solutions/SolutionsSection";
+import ProductsSection from "@/components/organisms/Products/ProductsSection";
+import CaseStudiesSection from "@/components/organisms/CaseStudies/CaseStudiesSection";
+import ArchitectureSection from "@/components/organisms/Architecture/ArchitectureSection";
+import FinalCTASection from "@/components/organisms/FinalCTA/FinalCTASection";
+import Footer from "@/components/organisms/Footer/Footer";
+import React from "react";
 
 const LandingPage = () => {
   return (
-    <>
-        <HeroPage/>
-        <AboutUs/>
-        <Process/>
-        <Services/>
-        <Features/>
-        <Benifits/>
-        <CTASection/>
-        <Footer/>
-    </>
-  )
-}
+    <div className="flex flex-col min-h-screen">
+      <HeroSection />
+      <CapabilitiesSection />
+      <AgenticFlowSection />
+      <SolutionsSection />
+      <ProductsSection />
+      <CaseStudiesSection />
+      <ArchitectureSection />
+      <FinalCTASection />
+      <Footer />
+    </div>
+  );
+};
 
-export default LandingPage
+export default LandingPage;
