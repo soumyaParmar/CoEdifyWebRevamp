@@ -3,66 +3,63 @@ import SectionHeader from "@/components/molecules/SectionHeader/SectionHeader";
 import FeatureCard from "@/components/molecules/FeatureCard/FeatureCard";
 import Heading from "@/components/atom/Typography/Heading";
 import Text from "@/components/atom/Typography/Text";
-import { ArrowRight, Inbox, Brain, Zap, CheckCircle } from "lucide-react";
-import React from "react";
+import { aiLifecycle } from "@/data/lifecycle";
+import {
+  ArrowRight,
+  Database,
+  Brain,
+  Zap,
+  Cloud,
+  Activity,
+  CheckCircle,
+} from "lucide-react";
 
-const steps = [
-  {
-    title: "Step 1 – Input",
-    description:
-      "Documents, user actions, system events, and APIs are ingested into the system.",
-    icon: Inbox,
-  },
-  {
-    title: "Step 2 – AI Agents",
-    description:
-      "Reasoning, validation, compliance, and reporting agents analyze and process the inputs.",
-    icon: Brain,
-  },
-  {
-    title: "Step 3 – Actions",
-    description:
-      "System updates, decisions, reports, notifications, and audit trails are automatically generated.",
-    icon: Zap,
-  },
-];
+const stepIcons = [Database, Brain, Zap, Cloud, Activity];
 
 const AgenticFlowSection = () => {
   return (
     <section className="py-24 bg-gray-50/50 dark:bg-slate-950/20" id="process">
       <Container>
         <SectionHeader
-          title="From Manual Processes to Autonomous AI Workflows"
-          subtitle="Our agentic architecture ensures faster execution, lower errors, and explainable decisions."
+          title="From Data to Deployed AI Systems"
+          subtitle="Our engineering-first approach ensures scalability, security, and continuous delivery of AI models."
           className="mb-16"
         />
 
         <div className="relative">
           {/* Connection line for desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-blue-200 dark:via-blue-900/50 to-transparent -translate-y-1/2 z-0"></div>
+          <div className="hidden lg:block absolute top-[40px] left-[10%] w-[80%] h-0.5 bg-linear-to-r from-transparent via-blue-200 dark:via-blue-900/50 to-transparent z-0"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center space-y-6">
-                <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-blue-900/20 border border-gray-100 dark:border-white/5 flex items-center justify-center text-blue-500 dark:text-blue-400 relative group transition-transform duration-300 hover:scale-110">
-                  <step.icon size={36} />
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 items-center justify-center text-blue-200 dark:text-blue-900/50">
-                      <ArrowRight size={24} />
-                    </div>
-                  )}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
+            {aiLifecycle.map((item, index) => {
+              const Icon = stepIcons[index] || Activity;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col items-center space-y-4"
+                >
+                  <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-blue-900/20 border border-gray-100 dark:border-white/5 flex items-center justify-center text-blue-500 dark:text-blue-400 relative group transition-transform duration-300 hover:scale-110">
+                    <Icon size={32} />
+                    {index < aiLifecycle.length - 1 && (
+                      <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 items-center justify-center text-blue-200 dark:text-blue-900/50">
+                        <ArrowRight size={20} />
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-center space-y-1">
+                    <Heading level={5} className="text-base">
+                      {item.step}
+                    </Heading>
+                    <Text
+                      variant="muted"
+                      className="text-xs max-w-[150px] mx-auto"
+                    >
+                      {item.details}
+                    </Text>
+                  </div>
                 </div>
-                <div className="text-center space-y-2">
-                  <Heading level={4}>{step.title}</Heading>
-                  <Text
-                    variant="muted"
-                    className="text-sm max-w-[250px] mx-auto"
-                  >
-                    {step.description}
-                  </Text>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

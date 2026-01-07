@@ -2,27 +2,33 @@ import { Capability } from "@/types";
 
 export const capabilities: Capability[] = [
   {
-    title: "Agentic AI Systems",
+    title: "Large Language Models (LLMs)",
     description:
-      "Multi-step AI agents that reason, plan, call tools, validate outputs, and act autonomously.",
-    subPoints: [
-      "Used for hiring workflows, claim validation, data reconciliation, and internal ops.",
-    ],
+      "Design, integration, fine-tuning, and orchestration of LLMs for enterprise use cases including reasoning, summarization, extraction, and decision support.",
   },
   {
-    title: "Workflow Automation",
+    title: "Small Language Models (SLMs)",
     description:
-      "AI-driven automation across CRM, ERP, finance, hiring, and operations.",
-    subPoints: [
-      "Replaces manual review, coordination, and rule-based pipelines.",
-    ],
+      "Cost-efficient, low-latency language models optimized for specific domains, on-device inference, and private deployments.",
   },
   {
-    title: "Decision Intelligence",
+    title: "Machine Learning & Deep Learning",
     description:
-      "AI models that interpret data, generate insights, and recommend actions.",
-    subPoints: [
-      "Designed for leadership, ops teams, and compliance-heavy workflows.",
-    ],
+      "End-to-end ML systems including supervised, unsupervised, and deep learning models for prediction, classification, and pattern recognition.",
+  },
+  {
+    title: "Agentic AI & Intelligent Workflows",
+    description:
+      "Multi-step AI systems that plan, reason, validate, and act across tools, APIs, and enterprise systems.",
+  },
+  {
+    title: "AI-Driven Workflow Automation",
+    description:
+      "Automation of manual processes across hiring, finance, claims, analytics, and operations using AI + rules + orchestration.",
+  },
+  {
+    title: "Data Engineering & DB Optimization",
+    description:
+      "Optimized data pipelines, vector databases, query performance tuning, and AI-ready data architectures.",
   },
 ];

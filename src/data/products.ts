@@ -5,7 +5,7 @@ export const products: Product[] = [
     id: "devsko",
     name: "DevSko",
     description:
-      "AI-powered hiring and skill intelligence platform that solves the struggle of assessing real skills at scale.",
+      "An AI-powered hiring and skill intelligence platform that enables companies to assess real skills, ensure integrity, and make data-driven hiring decisions.",
     useCase:
       "A company shares an assessment link with candidates, evaluates real skills automatically, and hires with confidence — without manual screening.",
     features: [
@@ -32,7 +32,7 @@ export const products: Product[] = [
     id: "revsko",
     name: "RevSko",
     description:
-      "AI Claims & TPM Automation for CPG that eliminates manual, slow, and error-prone processing.",
+      "An AI-driven claim and TPM automation platform for CPG companies, reducing manual effort and accelerating reimbursements.",
     useCase:
       "A CPG company automates distributor claims processing with AI agents, reducing turnaround time and disputes.",
     features: [

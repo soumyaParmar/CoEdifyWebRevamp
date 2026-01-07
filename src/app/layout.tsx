@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/atom/ThemeToggle";
 
 export default function RootLayout({
   children,
@@ -17,15 +18,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="relative overflow-x-hidden">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <NavMenu />
           {children}
+          <div className="fixed top-6 transform hidden md:block right-0 rotate-90 z-50">
+            <ThemeToggle />
+          </div>
         </ThemeProvider>
       </body>
     </html>

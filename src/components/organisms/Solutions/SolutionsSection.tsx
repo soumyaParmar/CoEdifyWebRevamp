@@ -1,44 +1,12 @@
 import Container from "@/components/atom/Container/Container";
 import SectionHeader from "@/components/molecules/SectionHeader/SectionHeader";
 import FeatureCard from "@/components/molecules/FeatureCard/FeatureCard";
-import { Users, ShieldCheck, Briefcase } from "lucide-react";
+import { Users, Briefcase, BarChart3, Settings } from "lucide-react";
 import React from "react";
 
-const solutions = [
-  {
-    title: "For HR & Talent Leaders",
-    description: "Personalized AI-driven experiences for the future of work.",
-    points: [
-      "AI-driven skill assessments",
-      "Proctoring and integrity checks",
-      "Candidate scoring and insights",
-      "Hiring decision intelligence",
-    ],
-    icon: Users,
-  },
-  {
-    title: "For Enterprise Ops & IT",
-    description: "Scale your intelligence without increasing your headcount.",
-    points: [
-      "AI automation across internal workflows",
-      "Agent-based orchestration",
-      "System-to-system intelligence",
-      "Reduced manual dependencies",
-    ],
-    icon: ShieldCheck,
-  },
-  {
-    title: "For Finance, CPG & Claims",
-    description: "Accuracy and speed where it matters the most.",
-    points: [
-      "Automated claim ingestion and validation",
-      "TPM reconciliation",
-      "Rule + AI hybrid decisioning",
-      "End-to-end auditability",
-    ],
-    icon: Briefcase,
-  },
-];
+import { solutionsByDomain } from "@/data/solutions";
+
+const domainIcons = [Users, Briefcase, BarChart3, Settings];
 
 const SolutionsSection = () => {
   return (
@@ -46,22 +14,28 @@ const SolutionsSection = () => {
       <Container>
         <SectionHeader
           badge="Solutions"
-          title="Solutions by Function"
+          title="AI Solutions by Business Domain"
           subtitle="Tailored AI systems designed to solve specific challenges across your organization."
           className="mb-16"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <FeatureCard
-              key={index}
-              title={solution.title}
-              description={solution.description}
-              subPoints={solution.points}
-              icon={<solution.icon size={24} />}
-              className="flex-1 min-w-0"
-            />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {solutionsByDomain.map((domain, index) => {
+            const Icon = domainIcons[index] || Settings;
+            return (
+              <FeatureCard
+                key={index}
+                title={domain.domain}
+                description="Key focus areas:"
+                subPoints={[
+                  ...domain.problems.map((p) => `Problem: ${p}`),
+                  `AI Used: ${domain.aiUsed.join(", ")}`,
+                ]}
+                icon={<Icon size={24} />}
+                className="flex-1 min-w-0"
+              />
+            );
+          })}
         </div>
       </Container>
     </section>

@@ -37,10 +37,20 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy }) => {
           </div>
           <div>
             <span className="text-indigo-500 font-bold text-xs uppercase">
-              Solution
+              Approach
             </span>
             <Text className="mt-1 font-medium">{caseStudy.solution}</Text>
           </div>
+          {caseStudy.aiStack && (
+            <div>
+              <span className="text-purple-500 font-bold text-xs uppercase">
+                AI Stack
+              </span>
+              <Text className="mt-1 font-medium text-sm italic">
+                {caseStudy.aiStack}
+              </Text>
+            </div>
+          )}
           <div className="pt-2 border-t border-gray-100 dark:border-white/5">
             <span className="text-green-500 font-bold text-xs uppercase">
               Outcome

@@ -2,13 +2,16 @@ import Container from "@/components/atom/Container/Container";
 import SectionHeader from "@/components/molecules/SectionHeader/SectionHeader";
 import FeatureCard from "@/components/molecules/FeatureCard/FeatureCard";
 import { capabilities } from "@/data/capabilities";
-import { Bolt, Bot, Cpu, BrainCircuit } from "lucide-react";
+import { Bolt, Bot, Cpu, BrainCircuit, Zap, Database } from "lucide-react";
 import React from "react";
 
 const iconMap: Record<number, any> = {
-  0: Bot,
-  1: Cpu,
+  0: Cpu,
+  1: Zap,
   2: BrainCircuit,
+  3: Bot,
+  4: Bolt,
+  5: Database,
 };
 
 const CapabilitiesSection = () => {
@@ -16,10 +19,10 @@ const CapabilitiesSection = () => {
     <section className="py-24" id="capabilities">
       <Container>
         <SectionHeader
-          badge="AI Capabilities"
+          badge="AI Engineering"
           badgeIcon={<Bolt size={14} />}
-          title="AI Capabilities We Deliver in Production"
-          subtitle="Powerful systems that give you the tools to automate faster and work smarter."
+          title="What We Build Across the AI Stack"
+          subtitle="From foundational models to production-grade intelligent automation."
           className="mb-16"
         />
 

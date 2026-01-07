@@ -26,14 +26,25 @@ export type CaseStudy = {
   title: string;
   problem: string;
   solution: string;
+  aiStack?: string;
   outcome: string;
   tags?: string[];
 };
 
-export type SolutionFunction = {
+export type AILifecycleStep = {
+  step: string;
+  details: string;
+};
+
+export type SolutionDomain = {
+  domain: string;
+  problems: string[];
+  aiUsed: string[];
+};
+
+export type InfraCapability = {
   title: string;
-  points: string[];
-  iconName?: string;
+  description: string;
 };
 
 export type NavLink = {
