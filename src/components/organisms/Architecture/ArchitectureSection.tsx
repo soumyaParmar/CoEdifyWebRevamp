@@ -56,11 +56,11 @@ const ArchitectureSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center gap-8 text-sm font-bold text-blue-500 uppercase tracking-widest">
+        <div className="mt-16 flex justify-center gap-8 text-sm font-bold text-blue-500 dark:text-white uppercase tracking-widest">
           <a href="#" className="hover:underline">
             View Architecture Diagram
           </a>
-          <span className="text-gray-300">|</span>
+          <span className="text-gray-300 dark:text-blue-400">|</span>
           <a href="#" className="hover:underline">
             Explore AI Workflows
           </a>
