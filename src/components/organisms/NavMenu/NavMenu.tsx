@@ -1,17 +1,39 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Calendar, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  Calendar,
+  ChevronDown,
+  Users,
+  GitMerge,
+  TrendingUp,
+  Cpu,
+  Zap,
+  UserCheck,
+  FileSpreadsheet,
+  Workflow,
+  LucideIcon,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/atom/ThemeToggle";
+import MegaMenuCard from "@/components/molecules/MegaMenuCard/MegaMenuCard";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+type NavChild = {
+  name: string;
+  description: string;
+  href: string;
+  icon: LucideIcon;
+};
+
 type NavLink = {
   name: string;
   href: string;
-  children?: { name: string; href: string }[];
+  children?: NavChild[];
 };
 
 const NavMenu = () => {
@@ -37,26 +59,66 @@ const NavMenu = () => {
       name: "Products",
       href: "/#products",
       children: [
-        { name: "Devsko", href: "/devsko" },
-        { name: "Revsko", href: "/revsko" },
+        {
+          name: "Devsko",
+          description: "AI-powered skill assessment and interview platform.",
+          href: "/devsko",
+          icon: Users,
+        },
+        {
+          name: "Revsko",
+          description: "Intelligent claims and workflow automation engine.",
+          href: "/revsko",
+          icon: GitMerge,
+        },
       ],
     },
     {
       name: "Blogs",
       href: "#",
       children: [
-        { name: "AI Engineering Trends", href: "#" },
-        { name: "MLOps Best Practices", href: "#" },
-        { name: "Future of Automation", href: "#" },
+        {
+          name: "AI Engineering",
+          description: "Stay updated with the latest trends in production AI.",
+          href: "#",
+          icon: TrendingUp,
+        },
+        {
+          name: "MLOps Best Practices",
+          description: "Scalable machine learning operations for enterprise.",
+          href: "#",
+          icon: Cpu,
+        },
+        {
+          name: "Future of Automation",
+          description: "How AI agents are reshaping horizontal workflows.",
+          href: "#",
+          icon: Zap,
+        },
       ],
     },
     {
       name: "Case Studies",
       href: "/#case-studies",
       children: [
-        { name: "Hiring Automation", href: "/#case-studies" },
-        { name: "CPG Claim Automation", href: "/#case-studies" },
-        { name: "Enterprise Workflow", href: "/#case-studies" },
+        {
+          name: "Hiring Automation",
+          description: "Reducing time-to-hire by 70% with AI screening.",
+          href: "/#case-studies",
+          icon: UserCheck,
+        },
+        {
+          name: "Claim Automation",
+          description: "Processing CPG claims with 99.9% accuracy.",
+          href: "/#case-studies",
+          icon: FileSpreadsheet,
+        },
+        {
+          name: "Enterprise Workflow",
+          description: "Orchestrating complex human-in-the-loop systems.",
+          href: "/#case-studies",
+          icon: Workflow,
+        },
       ],
     },
   ];
@@ -96,7 +158,7 @@ const NavMenu = () => {
               {navLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="relative group"
+                  className="relative flex items-center h-full"
                   onMouseEnter={() => setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -122,33 +184,35 @@ const NavMenu = () => {
                     )}
                     <span
                       className={cn(
-                        "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-3/4",
+                        "absolute bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-3/4",
                         pathname === link.href ? "w-3/4" : ""
                       )}
                     ></span>
                   </Link>
 
-                  {/* Dropdown Menu */}
+                  {/* Mega Dropdown Menu */}
                   {link.children && (
                     <div
                       className={cn(
-                        "absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-300 origin-top w-48",
+                        "absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-300 origin-top z-50",
                         activeDropdown === link.name
                           ? "opacity-100 translate-y-0 visible"
                           : "opacity-0 -translate-y-2 invisible"
                       )}
                     >
-                      <div className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-white/5 shadow-xl rounded-2xl overflow-hidden p-2">
-                        {link.children.map((child, childIndex) => (
-                          <Link
-                            key={childIndex}
-                            href={child.href}
-                            onClick={handleLinkClick}
-                            className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
+                      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-gray-100 dark:border-white/5 shadow-2xl rounded-2xl p-4 min-w-max">
+                        <div className="flex flex-row flex-wrap gap-4 max-w-[900px]">
+                          {link.children.map((child, childIndex) => (
+                            <MegaMenuCard
+                              key={childIndex}
+                              title={child.name}
+                              description={child.description}
+                              href={child.href}
+                              icon={child.icon}
+                              onClick={handleLinkClick}
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -185,22 +249,23 @@ const NavMenu = () => {
           </div>
         </div>
 
+        {/* Mobile Navigation */}
         <div
           className={cn(
             "md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transition-all duration-300",
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           )}
         >
-          <div className="flex flex-col items-center justify-center min-h-full py-20 px-6 space-y-4 overflow-y-auto">
+          <div className="flex flex-col items-center justify-start min-h-full py-20 px-6 space-y-6 overflow-y-auto">
             {navLinks.map((link, index) => (
-              <div key={index} className="w-full text-center">
+              <div key={index} className="w-full">
                 <div className="flex flex-col items-center">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between w-full">
                     <Link
                       href={link.href}
                       onClick={() => !link.children && handleLinkClick()}
                       className={cn(
-                        "text-2xl font-semibold transition-all duration-300",
+                        "text-3xl font-extrabold transition-all duration-300",
                         pathname === link.href
                           ? "text-blue-500"
                           : "text-gray-900 dark:text-white"
@@ -218,7 +283,7 @@ const NavMenu = () => {
                         className="p-2 text-gray-500"
                       >
                         <ChevronDown
-                          size={24}
+                          size={28}
                           className={cn(
                             "transition-transform duration-300",
                             activeDropdown === link.name ? "rotate-180" : ""
@@ -228,26 +293,38 @@ const NavMenu = () => {
                     )}
                   </div>
 
-                  {/* Mobile Dropdown items */}
+                  {/* Mobile Mega Dropdown items as Accordion Cards */}
                   {link.children && (
                     <div
                       className={cn(
-                        "overflow-hidden transition-all duration-300 space-y-4 pt-4",
+                        "w-full transition-all duration-500 origin-top overflow-hidden",
                         activeDropdown === link.name
-                          ? "max-h-[300px] opacity-100"
+                          ? "max-h-[1000px] opacity-100 mt-6"
                           : "max-h-0 opacity-0"
                       )}
                     >
-                      {link.children.map((child, childIndex) => (
-                        <Link
-                          key={childIndex}
-                          href={child.href}
-                          onClick={handleLinkClick}
-                          className="block text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500"
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
+                      <div className="grid grid-cols-1 gap-4">
+                        {link.children.map((child, childIndex) => (
+                          <Link
+                            key={childIndex}
+                            href={child.href}
+                            onClick={handleLinkClick}
+                            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5"
+                          >
+                            <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500">
+                              <child.icon size={24} />
+                            </div>
+                            <div className="text-left">
+                              <h5 className="font-bold text-gray-900 dark:text-white">
+                                {child.name}
+                              </h5>
+                              <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
+                                {child.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -255,23 +332,22 @@ const NavMenu = () => {
             ))}
 
             {/* Mobile CTA Button */}
-            <a
-              href="https://calendar.app.google/PDsuNkzSCVGXvhio8"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className={`group relative px-6 py-2.5 bg-blue-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 overflow-hidden inline-flex items-center space-x-2 ${
-                isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
-              <Calendar size={20} />
-              <span>Book a Call</span>
-            </a>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-20 right-10 w-32 h-32 bg-linear-to-br from-gray-200 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-full filter blur-3xl opacity-50"></div>
-            <div className="absolute bottom-20 left-10 w-40 h-40 bg-linear-to-br from-gray-300 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full filter blur-3xl opacity-50"></div>
+            <div className="w-full pt-8 pb-12 flex justify-center">
+              <a
+                href="https://calendar.app.google/PDsuNkzSCVGXvhio8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className={`group relative px-8 py-4 bg-blue-500 text-white rounded-2xl font-bold text-lg transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${
+                  isOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+              >
+                <Calendar size={24} />
+                <span>Book a Call</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
