@@ -34,7 +34,7 @@ const WHY_HIRE_DATA = [
     title: "3. Cloud-Native by Default",
     description:
       "Deep expertise across AWS, Azure, and GCP, with strong foundations in scalable architectures, cost optimization, and high-availability systems.",
-    image: "/images/hire_developer/cloud.jpg",
+    image: "/images/hire_developer/cloud.png",
     bgVariant: "bg-blue-50 dark:bg-blue-900/20",
     stagger: "",
   },
@@ -42,7 +42,7 @@ const WHY_HIRE_DATA = [
     title: "4. MLOps & DevOps Ready",
     description:
       "Production-grade workflows using CI/CD, model versioning, observability, and automated deployments, ensuring reliability from development to production.",
-    image: "/images/hire_developer/ml-ops.jpg",
+    image: "/images/hire_developer/ml-ops.png",
     bgVariant: "bg-indigo-50 dark:bg-indigo-900/20",
     stagger: "",
   },
@@ -58,7 +58,7 @@ const WHY_HIRE_DATA = [
     title: "6. Pre-Vetted, Production-Ready Talent",
     description:
       "Every developer is evaluated through real, scenario-based assessments, ensuring immediate impact with minimal onboarding and zero hiring risk.",
-    image: "/images/hire_developer/pre-vetted.jpg",
+    image: "/images/hire_developer/pre-vetted.png",
     bgVariant: "bg-indigo-50 dark:bg-indigo-900/20",
     stagger: "",
   },
@@ -95,7 +95,7 @@ const HireDevelopersPage = () => {
               "Data engineering and MLOps pipelines",
               "AI agent development for automation",
             ],
-            image: "/images/hire_developer/ml-ops.jpg",
+            image: "/images/hire_developer/ml-ops.png",
           },
           {
             title: "Scalable Engineering Teams",
@@ -105,7 +105,7 @@ const HireDevelopersPage = () => {
               "Domain expertise across industries",
               "Seamless integration with your Slack/Jira",
             ],
-            image: "/images/hire_developer/pre-vetted.jpg",
+            image: "/images/hire_developer/pre-vetted.png",
           },
         ]}
       />
