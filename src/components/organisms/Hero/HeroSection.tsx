@@ -9,6 +9,7 @@ import { ChevronDown, Star } from "lucide-react";
 import React from "react";
 
 import { heroContent } from "@/data/hero";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -16,12 +17,15 @@ const HeroSection = () => {
       <Container className="h-full flex flex-col items-center justify-center text-center relative py-20 lg:py-32">
         <div className="space-y-8 max-w-5xl flex flex-col items-center">
           {/* Trust Banner Capsule */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/50 transition-all duration-300 hover:bg-blue-100/50 dark:hover:bg-blue-900/20">
-            <Star
-              size={14}
-              className="text-blue-600 dark:text-blue-400 fill-blue-600 dark:fill-blue-400"
+          <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/50 transition-all duration-300 hover:bg-blue-100/50 dark:hover:bg-blue-900/20">
+            <Image
+              src={"/favicon-96x96.png"}
+              alt=""
+              height={20}
+              width={20}
+              className="rounded-full"
             />
-            <span className="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 uppercase">
+            <span className="text-xs tracking-wide text-gray-700 dark:text-blue-300 ">
               AI-First Engineering Teams
             </span>
           </div>

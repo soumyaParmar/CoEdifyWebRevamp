@@ -54,9 +54,9 @@ const NavMenu = () => {
   }, []);
 
   const navLinks: NavLink[] = [
-    { name: "Capabilities", href: "/#capabilities" },
-    { name: "Process", href: "/#process" },
-    { name: "Solutions", href: "/#solutions" },
+    // { name: "Capabilities", href: "/#capabilities" },
+    // { name: "Process", href: "/#process" },
+    // { name: "Solutions", href: "/#solutions" },
     { name: "Hire Developers", href: "/hire-developers" },
     {
       name: "Products",
@@ -168,18 +168,21 @@ const NavMenu = () => {
                   onMouseEnter={() => setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={handleLinkClick}
-                    className={cn(
-                      "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1",
-                      pathname === link.href
-                        ? "text-gray-900 dark:text-white"
-                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                    )}
-                  >
-                    {link.name}
-                    {link.children && (
+                  {link.children ? (
+                    <button
+                      onClick={() =>
+                        setActiveDropdown(
+                          activeDropdown === link.name ? null : link.name
+                        )
+                      }
+                      className={cn(
+                        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 cursor-pointer",
+                        activeDropdown === link.name || pathname === link.href
+                          ? "text-gray-900 dark:text-white"
+                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      )}
+                    >
+                      {link.name}
                       <ChevronDown
                         size={14}
                         className={cn(
@@ -187,14 +190,27 @@ const NavMenu = () => {
                           activeDropdown === link.name ? "rotate-180" : ""
                         )}
                       />
-                    )}
-                    <span
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={handleLinkClick}
                       className={cn(
-                        "absolute bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-3/4",
-                        pathname === link.href ? "w-3/4" : ""
+                        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-1 relative",
+                        pathname === link.href
+                          ? "text-gray-900 dark:text-white"
+                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                       )}
-                    ></span>
-                  </Link>
+                    >
+                      {link.name}
+                      <span
+                        className={cn(
+                          "absolute bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-400 transition-all duration-300 group-hover:w-3/4",
+                          pathname === link.href ? "w-3/4" : ""
+                        )}
+                      ></span>
+                    </Link>
+                  )}
 
                   {/* Mega Dropdown Menu */}
                   {link.children && (
@@ -269,35 +285,42 @@ const NavMenu = () => {
               <div key={index} className="w-full">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center justify-between w-full">
-                    <Link
-                      href={link.href}
-                      onClick={() => !link.children && handleLinkClick()}
-                      className={cn(
-                        "text-3xl font-extrabold transition-all duration-300",
-                        pathname === link.href
-                          ? "text-blue-500"
-                          : "text-gray-900 dark:text-white"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                    {link.children && (
+                    {link.children ? (
                       <button
                         onClick={() =>
                           setActiveDropdown(
                             activeDropdown === link.name ? null : link.name
                           )
                         }
-                        className="p-2 text-gray-500"
+                        className={cn(
+                          "flex items-center justify-between w-full text-base font-semibold transition-all duration-300",
+                          activeDropdown === link.name || pathname === link.href
+                            ? "text-blue-500"
+                            : "text-gray-900 dark:text-white"
+                        )}
                       >
+                        <span>{link.name}</span>
                         <ChevronDown
                           size={28}
                           className={cn(
-                            "transition-transform duration-300",
+                            "transition-transform duration-300 text-gray-500",
                             activeDropdown === link.name ? "rotate-180" : ""
                           )}
                         />
                       </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={handleLinkClick}
+                        className={cn(
+                          "text-base font-semibold transition-all duration-300",
+                          pathname === link.href
+                            ? "text-blue-500"
+                            : "text-gray-900 dark:text-white"
+                        )}
+                      >
+                        {link.name}
+                      </Link>
                     )}
                   </div>
 
@@ -364,13 +387,13 @@ const NavMenu = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className={`group relative px-8 py-4 bg-blue-500 text-white rounded-2xl font-bold text-lg transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${
+                className={`group relative px-8 py-2 bg-blue-500 text-white rounded-2xl font-bold transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${
                   isOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
                 }`}
               >
-                <Calendar size={24} />
+                <Calendar size={20} />
                 <span>Book a Call</span>
               </a>
             </div>
