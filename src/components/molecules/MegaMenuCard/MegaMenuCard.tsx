@@ -11,6 +11,8 @@ interface MegaMenuCardProps {
   description: string;
   href: string;
   icon: LucideIcon;
+  logoUrl?: string;
+  logoBg?: string;
   onClick?: () => void;
   className?: string;
 }
@@ -20,6 +22,8 @@ const MegaMenuCard = ({
   description,
   href,
   icon: Icon,
+  logoUrl,
+  logoBg,
   onClick,
   className,
 }: MegaMenuCardProps) => {
@@ -38,8 +42,26 @@ const MegaMenuCard = ({
       )}
     >
       <div className="flex gap-4 items-start h-full">
-        <div className="shrink-0 mt-1 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-          <Icon size={20} />
+        <div
+          className={cn(
+            "shrink-0 mt-1 w-12 h-12 rounded-lg flex items-center justify-center p-2 transition-colors",
+            logoUrl
+              ? cn(
+                  "bg-transparent border border-gray-100 dark:border-white/5",
+                  logoBg
+                )
+              : "bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white"
+          )}
+        >
+          {logoUrl ? (
+            <img
+              src={logoUrl}
+              alt={title}
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <Icon size={20} />
+          )}
         </div>
         <div className="space-y-1 overflow-hidden">
           <h4 className="text-sm font-bold text-gray-900 dark:text-white leading-tight transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">

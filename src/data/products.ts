@@ -26,7 +26,7 @@ export const products: Product[] = [
         variant: "outlined",
       },
     ],
-    imagePath: "/assets/landingpage/services/1.png",
+    imagePath: "/images/products/devsko/devsko_ai_interview.png",
   },
   {
     id: "revsko",
@@ -49,6 +49,6 @@ export const products: Product[] = [
         variant: "outlined",
       },
     ],
-    imagePath: "/assets/landingpage/services/2.png",
+    imagePath: "/images/products/revsko/revsko_claims.png",
   },
 ];

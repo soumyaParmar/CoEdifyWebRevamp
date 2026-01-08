@@ -24,6 +24,8 @@ interface ProductOverviewProps {
   slides: OverviewSlide[];
   primaryActionLink?: string;
   secondaryActionLink?: string;
+  logoUrl?: string;
+  logoBg?: string;
 }
 
 const ProductOverview = ({
@@ -35,6 +37,8 @@ const ProductOverview = ({
   slides,
   primaryActionLink = "",
   secondaryActionLink = "",
+  logoUrl,
+  logoBg,
 }: ProductOverviewProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -57,20 +61,47 @@ const ProductOverview = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Side: Content */}
           <div className="space-y-8 max-w-xl">
-            <div className="inline-flex items-center px-4 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
-              {badge}
+            <div
+              className={cn(
+                "inline-flex items-center gap-3 px-4 py-1.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all",
+                logoUrl
+                  ? cn(
+                      "bg-white dark:bg-slate-900 border-gray-100 dark:border-white/5 shadow-sm"
+                    )
+                  : "bg-blue-50 dark:bg-blue-900/30 border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400"
+              )}
+            >
+              {logoUrl && (
+                <div
+                  className={cn(
+                    "w-6 h-6 rounded flex items-center justify-center p-0.5",
+                    logoBg
+                  )}
+                >
+                  <img
+                    src={logoUrl}
+                    alt={badge}
+                    className={cn("w-full h-full object-contain")}
+                  />
+                </div>
+              )}
+              <span
+                className={cn(logoUrl ? "text-gray-900 dark:text-white" : "")}
+              >
+                {badge}
+              </span>
             </div>
             <div className="space-y-4">
               <Heading
                 level={1}
                 variant="gradient"
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
+                className="text-2xl md:text-2xl lg:text-4xl font-extrabold tracking-tight leading-tight"
               >
                 {title}
               </Heading>
               <Text
                 variant="muted"
-                className="text-lg md:text-xl leading-relaxed"
+                className="text-md md:text-md leading-relaxed"
               >
                 {description}
               </Text>
@@ -80,21 +111,21 @@ const ProductOverview = ({
                 label={primaryAction.label}
                 onClick={primaryAction.onClick}
                 link={primaryActionLink}
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95"
+                className="px-8  bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95"
               />
               <Button
                 label={secondaryAction.label}
                 onClick={secondaryAction.onClick}
                 varient="outlined"
                 link={secondaryActionLink}
-                className="px-8 py-4 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
+                className="px-8 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
               />
             </div>
           </div>
 
           {/* Right Side: Carousel */}
           <div className="relative group">
-            <div className="relative h-[550px] w-full flex items-center justify-center">
+            <div className="relative h-[350px] w-full flex items-center justify-center">
               {slides.map((slide, index) => (
                 <div
                   key={index}
@@ -112,7 +143,7 @@ const ProductOverview = ({
                       <img
                         src={slide.image}
                         alt={slide.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 

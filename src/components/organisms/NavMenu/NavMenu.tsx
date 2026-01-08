@@ -28,6 +28,8 @@ type NavChild = {
   description: string;
   href: string;
   icon: LucideIcon;
+  logoUrl?: string;
+  logoBg?: string;
 };
 
 type NavLink = {
@@ -64,12 +66,15 @@ const NavMenu = () => {
           description: "AI-powered skill assessment and interview platform.",
           href: "/devsko",
           icon: Users,
+          logoUrl: "/images/products/devsko/devsko_logo_no_name.png",
         },
         {
           name: "Revsko",
           description: "Intelligent claims and workflow automation engine.",
           href: "/revsko",
           icon: GitMerge,
+          logoUrl: "/images/products/revsko/revsko_logo_no_name.png",
+          logoBg: "bg-slate-950 dark:bg-transparent",
         },
       ],
     },
@@ -209,6 +214,8 @@ const NavMenu = () => {
                               description={child.description}
                               href={child.href}
                               icon={child.icon}
+                              logoUrl={child.logoUrl}
+                              logoBg={child.logoBg}
                               onClick={handleLinkClick}
                             />
                           ))}
@@ -311,8 +318,26 @@ const NavMenu = () => {
                             onClick={handleLinkClick}
                             className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5"
                           >
-                            <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500">
-                              <child.icon size={24} />
+                            <div
+                              className={cn(
+                                "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center p-2",
+                                child.logoUrl
+                                  ? cn(
+                                      "bg-transparent border border-gray-100 dark:border-white/5",
+                                      child.logoBg
+                                    )
+                                  : "bg-blue-500/10 text-blue-500"
+                              )}
+                            >
+                              {child.logoUrl ? (
+                                <img
+                                  src={child.logoUrl}
+                                  alt={child.name}
+                                  className="w-full h-full object-contain"
+                                />
+                              ) : (
+                                <child.icon size={24} />
+                              )}
                             </div>
                             <div className="text-left">
                               <h5 className="font-bold text-gray-900 dark:text-white">

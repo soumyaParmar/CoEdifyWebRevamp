@@ -28,6 +28,8 @@ const RevSkoPage = () => {
     <main className="pt-20">
       <ProductOverview
         badge="Claims & Workflow Automation"
+        logoUrl="/images/products/revsko/revsko_logo_no_name.png"
+        logoBg="bg-slate-950 dark:bg-transparent"
         title="AI-Powered Claims & Workflow Automation"
         description="Revsko automates claims, approvals, and document-heavy workflows using AI and rule-based orchestration. It is built for operations where speed, accuracy, and auditability matter."
         primaryAction={{ label: "Book a Demo", onClick: () => {} }}
@@ -43,7 +45,7 @@ const RevSkoPage = () => {
               "Orchestrates multi-step approval workflows",
               "Maintains full audit and compliance trails",
             ],
-            image: "/images/products/revsko_claims.png",
+            image: "/images/products/revsko/revsko_claims.png",
           },
           {
             title: "Who It’s For",
@@ -53,7 +55,7 @@ const RevSkoPage = () => {
               "Healthcare operations teams",
               "Enterprises with complex internal workflows",
             ],
-            image: "/images/products/revsko_workflow.png",
+            image: "/images/products/revsko/revsko_workflow.png",
           },
           {
             title: "Why Revsko",
@@ -63,7 +65,7 @@ const RevSkoPage = () => {
               "Combines rules + AI decisioning",
               "Enterprise-ready and cloud-scalable",
             ],
-            image: "/images/products/revsko_audit.png",
+            image: "/images/products/revsko/revsko_audit.png",
           },
         ]}
       />

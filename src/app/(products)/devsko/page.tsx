@@ -28,6 +28,7 @@ const DevSkoPage = () => {
     <main className="pt-20">
       <ProductOverview
         badge="AI-Powered Assessment"
+        logoUrl="/images/products/devsko/devsko_logo_no_name.png"
         title="AI-Powered Skill Assessment & Interview Platform"
         description="DevSko helps organizations evaluate real skills at scale using AI-driven interviews, coding assessments, and intelligent scoring. It replaces resume-based screening and manual interviews with structured, skill-first evaluation."
         primaryAction={{ label: "Book a Demo", onClick: () => {} }}
@@ -43,7 +44,7 @@ const DevSkoPage = () => {
               "Scents real-time fraud & plagiarism patterns",
               "Provides granular skill-competency insights",
             ],
-            image: "/images/products/devsko_ai_interview.png",
+            image: "/images/products/devsko/devsko_ai_interview.png",
           },
           {
             title: "Who It’s For",
@@ -53,7 +54,7 @@ const DevSkoPage = () => {
               "Enterprises with high-volume tech hiring",
               "Staffing agencies & assessment providers",
             ],
-            image: "/images/products/devsko_dashboard.png",
+            image: "/images/products/devsko/devsko_dashboard.png",
           },
           {
             title: "Why DevSko",
@@ -63,7 +64,7 @@ const DevSkoPage = () => {
               "Ensures unbiased, data-driven evaluation",
               "Enterprise-ready with seamless integrations",
             ],
-            image: "/images/products/devsko_scale.png",
+            image: "/images/products/devsko/devsko_scale.png",
           },
         ]}
       />
