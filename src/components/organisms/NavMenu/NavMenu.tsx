@@ -57,6 +57,7 @@ const NavMenu = () => {
     { name: "Capabilities", href: "/#capabilities" },
     { name: "Process", href: "/#process" },
     { name: "Solutions", href: "/#solutions" },
+    { name: "Hire Developers", href: "/hire-developers" },
     {
       name: "Products",
       href: "/#products",

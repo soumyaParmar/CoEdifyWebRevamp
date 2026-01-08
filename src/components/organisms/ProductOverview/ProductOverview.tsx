@@ -111,21 +111,21 @@ const ProductOverview = ({
                 label={primaryAction.label}
                 onClick={primaryAction.onClick}
                 link={primaryActionLink}
-                className="px-8  bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95"
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25"
               />
               <Button
                 label={secondaryAction.label}
                 onClick={secondaryAction.onClick}
                 varient="outlined"
                 link={secondaryActionLink}
-                className="px-8 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95"
+                className="border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-800"
               />
             </div>
           </div>
 
           {/* Right Side: Carousel */}
           <div className="relative group">
-            <div className="relative h-[350px] w-full flex items-center justify-center">
+            <div className="relative h-[400px] w-full flex items-center justify-center">
               {slides.map((slide, index) => (
                 <div
                   key={index}
@@ -143,7 +143,7 @@ const ProductOverview = ({
                       <img
                         src={slide.image}
                         alt={slide.title}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
