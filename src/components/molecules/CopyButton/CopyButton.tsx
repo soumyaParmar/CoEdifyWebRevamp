@@ -26,7 +26,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ text, className }) => {
     <button
       onClick={handleCopy}
       className={cn(
-        "absolute top-1 left-1 z-10 py-0.5 transition-all duration-300 rounded-full px-4",
+        "absolute top-2 left-0 z-10 py-0.5 transition-all duration-300 rounded-full px-4",
         "bg-slate-800/50 hover:bg-slate-700/80 text-slate-400 hover:text-white border border-slate-700/50",
         copied && "bg-green-500/20 border-green-500/50 text-green-400",
         className
