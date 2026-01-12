@@ -7,7 +7,7 @@ import Image from "next/image";
 import ShareButton from "@/components/molecules/ShareButton/ShareButton";
 
 interface PageProps {
-  params: { blog: string };
+  params: Promise<{ blog: string }>;
 }
 
 export default async function BlogPage({ params }: PageProps) {
