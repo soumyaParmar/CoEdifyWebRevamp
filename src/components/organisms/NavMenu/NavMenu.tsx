@@ -38,11 +38,26 @@ type NavLink = {
   children?: NavChild[];
 };
 
-const NavMenu = () => {
+import { BlogSummary } from "@/types/blogs";
+
+interface NavMenuProps {
+  latestBlogs?: BlogSummary[];
+}
+
+const NavMenu = ({ latestBlogs = [] }: NavMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+
+  const blogLinks: NavChild[] = [
+    ...latestBlogs.map((blog) => ({
+      name: blog.title,
+      description: "",
+      href: `/blogs/${blog.slug}`,
+      icon: TrendingUp,
+    }))
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,27 +96,8 @@ const NavMenu = () => {
     },
     {
       name: "Blogs",
-      href: "#",
-      children: [
-        {
-          name: "AI Engineering",
-          description: "Stay updated with the latest trends in production AI.",
-          href: "#",
-          icon: TrendingUp,
-        },
-        {
-          name: "MLOps Best Practices",
-          description: "Scalable machine learning operations for enterprise.",
-          href: "#",
-          icon: Cpu,
-        },
-        {
-          name: "Future of Automation",
-          description: "How AI agents are reshaping horizontal workflows.",
-          href: "#",
-          icon: Zap,
-        },
-      ],
+      href: "/blogs",
+      children: blogLinks,
     },
     {
       name: "Case Studies",
@@ -145,7 +141,7 @@ const NavMenu = () => {
               : "bg-transparent backdrop-blur-none"
           )}
         >
-          <div className="flex justify-between items-center h-14  md:h-14">
+          <div className="flex justify-between items-center min-h-14  md:min-h-14">
             {/* Logo */}
             <div className="shrink-0 z-50">
               <a href="/" className="group flex items-center">
@@ -169,7 +165,8 @@ const NavMenu = () => {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   {link.children ? (
-                    <button
+                    <Link
+                      href={link.href}
                       onClick={() =>
                         setActiveDropdown(
                           activeDropdown === link.name ? null : link.name
@@ -190,7 +187,7 @@ const NavMenu = () => {
                           activeDropdown === link.name ? "rotate-180" : ""
                         )}
                       />
-                    </button>
+                    </Link>
                   ) : (
                     <Link
                       href={link.href}
@@ -347,9 +344,9 @@ const NavMenu = () => {
                                 "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center p-2",
                                 child.logoUrl
                                   ? cn(
-                                      "bg-transparent border border-gray-100 dark:border-white/5",
-                                      child.logoBg
-                                    )
+                                    "bg-transparent border border-gray-100 dark:border-white/5",
+                                    child.logoBg
+                                  )
                                   : "bg-blue-500/10 text-blue-500"
                               )}
                             >
@@ -387,11 +384,10 @@ const NavMenu = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className={`group relative px-8 py-2 bg-blue-500 text-white rounded-2xl font-bold transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${
-                  isOpen
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
+                className={`group relative px-8 py-2 bg-blue-500 text-white rounded-2xl font-bold transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${isOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0"
+                  }`}
               >
                 <Calendar size={20} />
                 <span>Book a Call</span>

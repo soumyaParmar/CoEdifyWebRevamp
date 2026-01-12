@@ -10,12 +10,15 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/atom/ThemeToggle";
+import { getAllBlogs } from "@/lib/blogs";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const latestBlogs = getAllBlogs();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="relative overflow-x-hidden">
@@ -25,9 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavMenu />
+          <NavMenu latestBlogs={latestBlogs} />
           {children}
-          <div className="fixed top-6 transform hidden md:block right-0 rotate-90 z-50">
+          <div className="fixed top-26 xl:top-6 transform hidden md:block right-0 rotate-90 z-50">
             <ThemeToggle />
           </div>
         </ThemeProvider>
