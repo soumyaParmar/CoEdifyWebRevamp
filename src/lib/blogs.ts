@@ -36,6 +36,12 @@ export function getAllBlogs(): BlogSummary[] {
         );
 }
 
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypePrettyCode from "rehype-pretty-code";
+
 export async function getBlogBySlug(
     slug: string
 ): Promise<BlogPost | null> {
@@ -46,8 +52,14 @@ export async function getBlogBySlug(
     const fileContent = readMarkdownFile(filePath);
     const { data, content } = matter(fileContent);
 
-    const processedContent = await remark()
-        .use(html)
+    const processedContent = await unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypePrettyCode, {
+            theme: "slack-dark", // High quality dark theme
+            keepBackground: true,
+        })
+        .use(rehypeStringify)
         .process(content);
 
     return {

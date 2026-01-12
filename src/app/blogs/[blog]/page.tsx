@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import ShareButton from "@/components/molecules/ShareButton/ShareButton";
+import CodeBlockWrapper from "@/components/molecules/CodeBlock/CodeBlockWrapper";
 
 interface PageProps {
   params: Promise<{ blog: string }>;
@@ -76,7 +77,9 @@ export default async function BlogPage({ params }: PageProps) {
 
         {/* Main Prose Content */}
         <article className="prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-3xl prose-pre:bg-slate-900 prose-pre:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50/50 dark:prose-blockquote:bg-blue-900/10 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:not-italic">
-          <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
+          <CodeBlockWrapper>
+            <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
+          </CodeBlockWrapper>
         </article>
 
         {/* Footer Navigation */}
