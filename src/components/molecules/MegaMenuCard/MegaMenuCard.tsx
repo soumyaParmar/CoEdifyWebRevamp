@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Text from "@/components/atom/Typography/Text";
 import { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 interface MegaMenuCardProps {
   title: string;
@@ -44,7 +45,7 @@ const MegaMenuCard = ({
       <div className="flex gap-4 items-start h-full">
         <div
           className={cn(
-            "shrink-0 mt-1 w-12 h-12 rounded-lg flex items-center justify-center p-2 transition-colors",
+            "shrink-0 mt-1 w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden transition-colors",
             logoUrl
               ? cn(
                   "bg-transparent border border-gray-100 dark:border-white/5",
@@ -54,9 +55,11 @@ const MegaMenuCard = ({
           )}
         >
           {logoUrl ? (
-            <img
+            <Image
               src={logoUrl}
               alt={title}
+              height={100}
+              width={100}
               className="w-full h-full object-contain"
             />
           ) : (

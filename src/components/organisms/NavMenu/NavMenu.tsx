@@ -56,7 +56,8 @@ const NavMenu = ({ latestBlogs = [] }: NavMenuProps) => {
       description: "",
       href: `/blogs/${blog.slug}`,
       icon: TrendingUp,
-    }))
+      logoUrl: blog.image,
+    })),
   ];
 
   useEffect(() => {
@@ -344,9 +345,9 @@ const NavMenu = ({ latestBlogs = [] }: NavMenuProps) => {
                                 "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center p-2",
                                 child.logoUrl
                                   ? cn(
-                                    "bg-transparent border border-gray-100 dark:border-white/5",
-                                    child.logoBg
-                                  )
+                                      "bg-transparent border border-gray-100 dark:border-white/5",
+                                      child.logoBg
+                                    )
                                   : "bg-blue-500/10 text-blue-500"
                               )}
                             >
@@ -384,10 +385,11 @@ const NavMenu = ({ latestBlogs = [] }: NavMenuProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className={`group relative px-8 py-2 bg-blue-500 text-white rounded-2xl font-bold transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${isOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-                  }`}
+                className={`group relative px-8 py-2 bg-blue-500 text-white rounded-2xl font-bold transition-all duration-300 overflow-hidden inline-flex items-center space-x-3 shadow-xl shadow-blue-500/20 ${
+                  isOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
               >
                 <Calendar size={20} />
                 <span>Book a Call</span>
