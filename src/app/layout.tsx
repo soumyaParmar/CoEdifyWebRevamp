@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavMenu from "@/components/organisms/NavMenu/NavMenu";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/atom/ThemeToggle";
+import { getAllBlogs } from "@/lib/blogs";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.coedify.com"),
@@ -71,20 +75,18 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/atom/ThemeToggle";
-import { getAllBlogs } from "@/lib/blogs";
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const latestBlogs = getAllBlogs();
+  const gtmId: string = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string;
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body className="relative overflow-x-hidden">
+        <GoogleTagManager gtmId={gtmId} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -103,8 +105,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body className="relative overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
