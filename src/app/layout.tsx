@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/atom/ThemeToggle";
 import { getAllBlogs } from "@/lib/blogs";
 import { GoogleTagManager } from "@next/third-parties/google";
+import GTMTracker from "@/components/GTMTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.coedify.com"),
@@ -87,6 +88,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="relative overflow-x-hidden">
         <GoogleTagManager gtmId={gtmId} />
+        <GTMTracker />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
