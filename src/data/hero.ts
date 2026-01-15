@@ -14,4 +14,15 @@ export const heroContent = {
       variant: "outlined" as const,
     },
   ],
+  partners: [
+    { name: "Binmile", logo: "/assets/partners/binmile.svg" },
+    { name: "Deci", logo: "/assets/partners/deci.png" },
+    { name: "DevLabs", logo: "/assets/partners/devlabs.svg" },
+    { name: "Equipped", logo: "/assets/partners/equipped.svg" },
+    { name: "Innovation", logo: "/assets/partners/innovation.png" },
+    { name: "IQ", logo: "/assets/partners/iq.png" },
+    { name: "PeLocal", logo: "/assets/partners/pelocal.png" },
+    { name: "Prolitus", logo: "/assets/partners/prolitus.png" },
+    { name: "Tech", logo: "/assets/partners/tech.svg" },
+  ],
 };

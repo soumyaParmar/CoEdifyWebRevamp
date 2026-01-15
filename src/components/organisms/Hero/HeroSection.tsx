@@ -10,11 +10,12 @@ import React from "react";
 
 import { heroContent } from "@/data/hero";
 import Image from "next/image";
+import Marquee from "@/components/atom/Marquee/Marquee";
 
 const HeroSection = () => {
   return (
     <WaveBackground>
-      <Container className="h-full flex flex-col items-center justify-center text-center relative py-20 lg:py-32">
+      <Container className="min-h-full flex flex-col items-center justify-center text-center relative pb-0 lg:pb-20 pt-30 lg:pt-42">
         <div className="space-y-8 max-w-5xl flex flex-col items-center">
           {/* Trust Banner Capsule */}
           <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/50 transition-all duration-300 hover:bg-blue-100/50 dark:hover:bg-blue-900/20">
@@ -46,9 +47,27 @@ const HeroSection = () => {
 
         <CTAGroup ctas={heroContent.ctas} className="mt-12" centered={true} />
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50">
-          <ChevronDown size={40} className="text-blue-500" />
-          <ChevronDown size={25} className="-mt-6 text-blue-300" />
+        <div className="min-h-[200px] grow w-full py-8 pt-20 lg:pt-40 overflow-hidden pointer-events-none fade-in-up delay-300">
+          <p className="text-center text-sm font-medium text-gray-500 dark:text-gray-400 mb-6 tracking-wide uppercase opacity-80">
+            Trusted by Industry Leaders
+          </p>
+          <div className="relative w-full mask-gradient">
+            <Marquee className="py-2" reverse={false}>
+              {heroContent.partners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="relative h-8 w-32 md:h-10 md:w-40 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 cursor-pointer"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    fill
+                    className="object-contain dark:invert"
+                  />
+                </div>
+              ))}
+            </Marquee>
+          </div>
         </div>
       </Container>
     </WaveBackground>

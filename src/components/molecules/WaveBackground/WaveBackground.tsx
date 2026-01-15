@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 
 const WaveBackground = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="h-dvh relative " id="hero">
+    <div className="min-h-dvh relative " id="hero">
       <video
         src="/assets/bg/bgg.mp4"
         loop

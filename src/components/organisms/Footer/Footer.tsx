@@ -16,10 +16,10 @@ export default function Footer() {
   const [hoveredSocial, setHoveredSocial] = useState<number | null>(null);
 
   const exploreLinks = [
-    { name: "Capabilities", href: "#capabilities" },
+    { name: "Hire Developera", href: "/hire-developer" },
     { name: "Solutions", href: "#solutions" },
     { name: "Products", href: "#products" },
-    { name: "Architecture", href: "#architecture" },
+    { name: "Blogs", href: "/blogs" },
   ];
 
   const socialLinks = [
@@ -125,12 +125,12 @@ export default function Footer() {
                   />
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  C-89, Second Floor Sector-2, Noida, 201301 Uttar Pradesh
+                  C-89, Fifth Floor Sector-2, Noida, 201301 Uttar Pradesh
                 </p>
               </div>
 
               <a
-                href="tel:+917834906274"
+                href="tel:+918130046116"
                 className="flex items-center space-x-3 group"
               >
                 <div className="w-10 h-10 bg-gray-100 dark:bg-slate-900 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-gray-200 dark:group-hover:bg-slate-800 group-hover:scale-110">
@@ -140,7 +140,7 @@ export default function Footer() {
                   />
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                  +91 7834906274
+                  +91 8130046116
                 </p>
               </a>
 
