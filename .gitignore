@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .next
 doc
+.env
+.env.coedify
 
 # Editor directories and files
 .vscode/*
