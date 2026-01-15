@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import React from "react";
 
+const baseurl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
 export const metadata: Metadata = {
   title: "Hire Elite Engineers | Engineering Beyond AI",
   description:
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     title: "Hire Elite Engineers | Engineering Beyond AI",
     description:
       "Build with elite engineers trained for real-world scale. CoEdify delivers engineering excellence beyond AI.",
-    url: "https://coedify.com/hire-developers",
+    url: `${baseurl}/hire-developers`,
     siteName: "CoEdify",
     images: [
       {
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://coedify.com/hire-developers",
+    canonical: `${baseurl}/hire-developers`,
   },
 };
 

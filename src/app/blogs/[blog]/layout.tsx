@@ -26,6 +26,8 @@ export async function generateMetadata({
     };
   }
 
+  const baseurl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
   return {
     title: blog.frontmatter.title,
     description: blog.frontmatter.description,
@@ -37,6 +39,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime: blog.frontmatter.date,
       siteName: "CoEdify",
+      url: `${baseurl}/blogs/${blogParam.blog}`,
     },
     robots: {
       index: true,

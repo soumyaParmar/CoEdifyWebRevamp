@@ -1,6 +1,8 @@
 import Footer from "@/components/organisms/Footer/Footer";
 import type { Metadata } from "next";
 
+const baseurl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
 export const metadata: Metadata = {
   title: "Blogs",
   description:
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "CoEdify",
+    url: `${baseurl}/blogs`,
   },
   robots: {
     index: true,

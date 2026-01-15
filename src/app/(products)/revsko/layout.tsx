@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import React from "react";
 
+const baseurl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
 export const metadata: Metadata = {
   title: "RevSko | Intelligent Revenue Automation at Scale",
 
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "/revsko",
+    canonical: `${baseurl}/revsko`,
   },
 
   openGraph: {
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     title: "RevSko | Intelligent Revenue Automation at Scale",
     description:
       "Automate revenue workflows with RevSko—an AI-powered platform built for accuracy, efficiency, and enterprise scale.",
-    url: "https://www.coedify.com/revsko",
+    url: `${baseurl}/revsko`,
     siteName: "CoEdify",
     images: [
       {

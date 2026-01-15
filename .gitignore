@@ -15,6 +15,7 @@ dist-ssr
 doc
 .env
 .env.coedify
+.env*
 
 # Editor directories and files
 .vscode/*

@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import React from "react";
 
+const baseurl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
 export const metadata: Metadata = {
   title: "DevSko | AI-Powered Skill Assessment & Interviews",
   description:
@@ -20,17 +22,17 @@ export const metadata: Metadata = {
   authors: [{ name: "CoEdify" }],
   creator: "CoEdify",
   publisher: "CoEdify",
-  metadataBase: new URL("https://www.coedify.com"),
+  metadataBase: new URL(baseurl),
 
   alternates: {
-    canonical: "https://www.coedify.com/devsko",
+    canonical: `${baseurl}/devsko`,
   },
 
   openGraph: {
     title: "DevSko by CoEdify | AI-Powered Skill Assessment Platform",
     description:
       "Evaluate real skills, not resumes. DevSko by CoEdify enables AI-led interviews, coding assessments, and scalable skill evaluation for modern hiring teams.",
-    url: "https://www.coedify.com/devsko",
+    url: `${baseurl}/devsko`,
     siteName: "CoEdify",
     images: [
       {
